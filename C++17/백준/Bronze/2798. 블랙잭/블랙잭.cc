@@ -3,28 +3,25 @@
 using namespace std;
 
 int main() {
-    int N, M;
-    cin >> N >> M;
+    int n, m;
+    cin >> n >> m;
 
-    vector<int> cards(N);
-    for (int i = 0; i < N; ++i) {
-        cin >> cards[i];
+    vector<int> cards(n);
+    for (int l = 0; l < n; l++) {
+        cin >> cards[l];
     }
-
-    int maxSum = 0;
-    
-    // 모든 3장 조합을 검사
-    for (int i = 0; i < N - 2; ++i) {
-        for (int j = i + 1; j < N - 1; ++j) {
-            for (int k = j + 1; k < N; ++k) {
+    int maxsum = 0;
+    for (int i = 0; i < n - 2; i++) {
+        for (int j=i+1; j < n - 1; j++) {
+            for (int k = j + 1; k < n; k++) {
                 int sum = cards[i] + cards[j] + cards[k];
-                if (sum <= M && sum > maxSum) {
-                    maxSum = sum;
+                if (sum <= m && sum > maxsum) {
+                    maxsum = sum;
                 }
             }
         }
     }
+    cout << maxsum << endl;
 
-    cout << maxSum << endl;
     return 0;
 }
